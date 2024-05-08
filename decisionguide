@@ -1,0 +1,27 @@
+import sys
+
+def check_honorarium_eligibility():
+    higher_grade_duties = input("Is the employee undertaking duties that fall under a higher graded role? (yes/no): ")
+    if higher_grade_duties.lower() == 'no':
+        return "The employee is not undertaking higher graded duties and does not qualify for an honorarium payment."
+
+    all_higher_grade_roles = input("Are the additional duties all of the higher graded roles? (yes/no): ")
+    if all_higher_grade_roles.lower() == 'yes':
+        return "This would fall under secondment and would not qualify for an honorarium payment."
+
+    protected_salary = input("Is the employee currently on a protected salary and being requested to undertake temporary additional duties for a post on the same grade as the protected grade? (yes/no): ")
+    if protected_salary.lower() == 'yes':
+        return "They would not qualify for an honorarium payment in this circumstance."
+
+    short_term = input("Are the additional duties short term? (yes/no): ")
+    if short_term.lower() == 'yes':
+        return "The employee may qualify for an honorarium, please complete the business case found on StaffSpace by searching for 'Honorarium', and forward this to the Reward Team once complete."
+    else:
+        return "Please contact the Reward Team to discuss your request further"
+
+    business_case_info = gather_business_case_info()
+    return "The employee does not qualify for an honorarium payment for long-term additional duties."
+
+# Run the eligibility check
+result = check_honorarium_eligibility()
+print(result)
